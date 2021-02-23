@@ -646,6 +646,12 @@ class ViewComponentTest < ViewComponent::TestCase
     assert_text "Hello, World!"
   end
 
+  def test_collection_parameter_compile
+    my_component_klass = Class.new(ViewComponent::Base)
+
+    render_inline my_component_klass.with_collection([1])
+  end
+
   def test_does_not_render_passed_in_content_if_render_is_false
     start_time = Time.now
 
